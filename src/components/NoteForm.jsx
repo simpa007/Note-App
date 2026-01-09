@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import TextInput from "./imputs/TextInput";
+import SelectInput from "./imputs/SelectInput";
+import { TextArea } from "./imputs/TextArea";
 const NoteForm = ({ notes, setNotes }) => {
 	const [formData, setFormData] = useState({
 		title: "",
@@ -45,65 +48,58 @@ const NoteForm = ({ notes, setNotes }) => {
 			</button>
 			{isFormVisible && (
 				<form onSubmit={handleSubmit} className="mb-6">
-					<div className="mb-4">
-						<label htmlFor="title" className="block font-semiboold">
-							{" "}
-							Title
-						</label>
-						<input
-							className="w-full p-2 border rounded-lg"
-							name="title"
-							type="text"
-							value={formData.title}
-							onChange={handleChange}
-						/>
-					</div>
-					<div className="mb-4">
-						<label htmlFor="priority" className="block font-semiboold">
-							{" "}
-							Priority
-						</label>
-						<select
-							className="w-full p-2 border rounded-lg"
-							name="priority"
-							id=""
-							value={formData.priority}
-							onChange={handleChange}
-						>
-							<option value="high">High</option>
-							<option value="medium">Medium</option>
-							<option value="low">Low</option>
-						</select>
-					</div>
-					<div className="mb-4">
-						<label htmlFor="" className="block font-semiboold">
-							{" "}
-							Category
-						</label>
-						<select
-							className="w-full p-2 border rounded-lg"
-							name="category"
-							id=""
-							value={formData.category}
-							onChange={handleChange}
-						>
-							<option value="personal">Personal</option>
-							<option value="work">Work</option>
-							<option value="ideas">Ideas</option>
-						</select>
-					</div>
-					<div className="mb-4">
-						<label htmlFor="" className="block font-semibold">
-							Description
-						</label>
-						<textarea
-							className="w-full p-2 border rounded-lg"
-							name="description"
-							type="text"
-							value={formData.description}
-							onChange={handleChange}
-						></textarea>
-					</div>
+					<TextInput
+						label="Title"
+						name="title"
+						value={formData.title}
+						required
+					/>
+					<SelectInput
+						label="Priority"
+						name="priority"
+						value={formData.priority}
+						handleChange={handleChange}
+						options={[
+							{
+								value: "high",
+								name: "High",
+							},
+							{
+								value: "medium",
+								name: "Medium",
+							},
+							{
+								value: "low",
+								name: "Low",
+							},
+						]}
+					/>
+					<SelectInput
+						label="Category"
+						name="category"
+						value={formData.category}
+						handleChange={handleChange}
+						options={[
+							{
+								value: "personal",
+								name: "Personal",
+							},
+							{
+								value: "work",
+								name: "Work",
+							},
+							{
+								value: "ideas",
+								name: "Ideas",
+							},
+						]}
+					/>
+					<TextArea
+						label="Description"
+						name="description"
+						value={formData.description}
+						handleChange={handleChange}
+					/>
 
 					<button className="w-full bg-purple-500 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-600">
 						Add Note
