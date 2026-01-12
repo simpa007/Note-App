@@ -24,6 +24,7 @@ const NoteForm = ({ notes, setNotes }) => {
 
 		// Validate Data
 		if (formData.title === "" || formData.description === "") return;
+
 		//Create new object
 		const newNote = { id: new Date(), ...formData };
 		// Add New Notes
@@ -36,7 +37,6 @@ const NoteForm = ({ notes, setNotes }) => {
 			description: "",
 		});
 	};
-
 	return (
 		<div>
 			{/* Toggle Button */}
@@ -52,6 +52,7 @@ const NoteForm = ({ notes, setNotes }) => {
 						label="Title"
 						name="title"
 						value={formData.title}
+						handleChange={handleChange}
 						required
 					/>
 					<SelectInput

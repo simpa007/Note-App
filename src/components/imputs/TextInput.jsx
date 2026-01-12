@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextInput = ({ label, name, value, handleChange, required = false }) => {
+const TextInput = ({ label, name, value, handleChange, required = true }) => {
 	return (
 		<div className="mb-4">
 			<label htmlFor={name} className="block font-semiboold">
