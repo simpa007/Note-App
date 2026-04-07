@@ -27,8 +27,10 @@ const NoteForm = ({ notes, setNotes }) => {
 
 		//Create new object
 		const newNote = { id: new Date(), ...formData };
+
 		// Add New Notes
 		setNotes([newNote, ...notes]);
+
 		// Reset
 		setFormData({
 			title: "",
