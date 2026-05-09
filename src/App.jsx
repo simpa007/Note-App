@@ -15,6 +15,7 @@ function App() {
 		if (confirm("Do you want to continue?")) {
 			const availableNote = notes.filter((note) => note.id !== id);
 			setNotes(availableNote);
+			alert("Noted Deleted Successfully");
 		}
 	};
 
